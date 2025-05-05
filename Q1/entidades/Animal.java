@@ -1,3 +1,7 @@
+package entidades;
+
+import excecoes.NVazioException;
+
 public class Animal{
     private String name;
     private int age;
@@ -15,6 +19,9 @@ public class Animal{
     }
 
     public void setName(String name){
+        if(name == null || name.trim().isEmpty()){
+            throw new NVazioException("O nome não pode ser vazio");
+        }
         this.name = name;
     }
     public void setAge(int age){
