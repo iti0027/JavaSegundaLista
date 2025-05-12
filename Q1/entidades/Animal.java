@@ -1,34 +1,35 @@
-package entidades;
+package Q1.entidades;
 
-import excecoes.NVazioException;
+import Q1.excecoes.NameEmpty;
+import Q1.excecoes.AgeLessThanZero;
 
-public class Animal{
+public abstract class Animal {
     private String name;
-    private int age;
+    private Short age;
 
-    public Animal(String name, int age){
+    public Animal(String name, short age){
+        if(age < 0){
+            throw new excecoes.AgeLessThanZero();
+        }
         this.name = name;
         this.age = age;
+    }
+    public void som(){
+        System.out.println("Som de animal!");
     }
 
     public String getName(){
         return name;
     }
-    public int getAge(){
-        return age;
-    }
-
     public void setName(String name){
-        if(name == null || name.trim().isEmpty()){
-            throw new NVazioException("O nome não pode ser vazio");
-        }
         this.name = name;
     }
-    public void setAge(int age){
+
+    public short getAge(){
+        return age;
+    }
+    public void setAge(short age){
         this.age = age;
     }
 
-    public void som(){
-        System.out.println("Som genêrico do animal.");
-    }
 }

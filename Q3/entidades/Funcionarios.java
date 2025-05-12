@@ -1,4 +1,4 @@
-package Q3;
+package Q3.entidades;
 
 public class Funcionarios {
     private String nome;
